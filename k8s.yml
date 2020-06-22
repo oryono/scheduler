@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: banking-app
+  name: banking-scheduler
   labels:
-    app: scheduler
+    app: banking-scheduler
     keel.sh/policy: force
     keel.sh/trigger: poll
   annotations:
@@ -11,18 +11,18 @@ metadata:
 spec:
   selector:
     matchLabels:
-    app: scheduler
+      app: banking-scheduler
   template:
     metadata:
       labels:
-    app: scheduler
+        app: banking-scheduler
     spec:
       imagePullSecrets:
-        -   name: registrypullsecret
+        - name: registrypullsecret
       containers:
-        -   name: scheduler
-            imagePullPolicy: Always
-            image: docker.pkg.github.com/oryono/scheduler/scheduler:latest
-            envFrom:
-              -   secretRef:
-                    name: environment-variables
+        - name: scheduler
+          imagePullPolicy: Always
+          image: docker.pkg.github.com/oryono/scheduler/scheduler:latest
+          envFrom:
+            - secretRef:
+                name: environment-variables

@@ -12,5 +12,5 @@ config :scheduler,
        Scheduler.Scheduler,
        jobs: [
          # Every month on 25th
-         {"* * * * *", {Mix.Tasks.MonthlyCharge, :run, [nil]}}
+         {"0 0 25 * *", {Mix.Tasks.MonthlyCharge, :run, [nil]}}
        ]
