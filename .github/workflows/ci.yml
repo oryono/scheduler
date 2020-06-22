@@ -15,7 +15,7 @@ jobs:
           with:
             username: "oryono"
             password: ${{ secrets.TOKEN }}
-            repository: oryono/banking/banking
+            repository: oryono/scheduler/scheduler
             dockerfile: Dockerfile
             registry: docker.pkg.github.com
             tags: latest
